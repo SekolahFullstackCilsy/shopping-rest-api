@@ -38,6 +38,7 @@ exports.checkout = async (req, res, next) => {
     // insert multiple to checkout
     await Checkout.bulkCreate(checkoutTemp, { transaction })
 
+    // clear cart by user id
     await Cart.destroy({where: {user_id: req.params.userId}})
 
     await transaction.commit()
