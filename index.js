@@ -10,6 +10,7 @@ const { sequelize } = require('./src/models')
 const authRouter = require('./src/routes/auth')
 const productRouter = require('./src/routes/product')
 const cartRouter = require('./src/routes/cart')
+const checkoutRouter = require('./src/routes/checkout')
 const authorization = require('./src/middleware/authorization')
 
 sequelize.authenticate().then(() => {
@@ -28,6 +29,7 @@ app.use(fileUpload({
 app.use('/auth', authRouter)
 app.use('/products', productRouter)
 app.use('/carts', cartRouter)
+app.use('/checkout', checkoutRouter)
 
 app.post('/upload', authorization, async (req, res, next) => {
   const randomString = Math.random().toString(30).substring(2, 15) + Math.random().toString(30).substring(2, 15)

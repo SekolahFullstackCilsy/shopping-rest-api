@@ -8,7 +8,19 @@ Checkout.init({
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true
-  }
+  },
+  payment_id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+  },
+  user_id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+  },
+  product_id: {
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
+  },
 }, {
   modelName: 'checkouts',
   sequelize: connection,
